@@ -1,2 +1,5 @@
-package org.hucs;public interface Command {
+package org.hucs;
+
+public interface Command {
+    void execute();
 }

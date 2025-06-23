@@ -1,2 +1,8 @@
-package org.hucs;public class SettingsMenu {
+package org.hucs;
+
+public class SettingsMenu extends AbstractMenu {
+    public SettingsMenu() {
+        super("Settings");
+    }
 }
+
