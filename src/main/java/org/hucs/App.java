@@ -5,7 +5,7 @@ public class App {
 
         GroupMenu gameMenu = new GroupMenu("GAME MENU");
         gameMenu.addOption(1, new OptionMenu("Start game",new Command("Game started")));
-        gameMenu.addOption(2, new OptionMenu("Continue game",new Command("Game continued")));
+        gameMenu.addOption(2, new OptionMenu("C11ontinue game",new Command("Game continued")));
 
         GroupMenu settingsMenu = new GroupMenu("SETTINGS");
         settingsMenu.addOption(1, new OptionMenu("Change Language",new Command("Language changed")));
