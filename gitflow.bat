@@ -45,7 +45,7 @@ REM ======================================================
 
 echo.
 echo [3] Merge da develop na main
-git merge develop
+git merge -X theirs develop
 
 REM ======================================================
 REM 4 - VERIFICAR VERSAO ATUAL
@@ -80,12 +80,8 @@ echo.
 echo [6] Commit de fechamento da versao
 
 git add .
+git commit -m "fechamento da versao %VERSAO_FECHADA%"
 
-if /I "%EXEC_COMMITS%"=="TRUE" (
-    git commit -m "fechamento da versao %VERSAO_FECHADA%"
-) else (
-    echo Commit ignorado (EXEC_COMMITS=FALSE)
-)
 
 REM ======================================================
 REM 7 - GERAR TAG
@@ -103,11 +99,8 @@ REM ======================================================
 echo.
 echo [8] Commit da tag
 
-if /I "%EXEC_COMMITS%"=="TRUE" (
-    git push origin %VERSAO_FECHADA%
-) else (
-    echo Push da tag ignorado
-)
+
+REM git push origin %VERSAO_FECHADA%
 
 REM ======================================================
 REM 9 - GERAR NOVA VERSAO SNAPSHOT (MINOR +1)
@@ -138,12 +131,8 @@ echo.
 echo [10] Commit abertura da nova versao SNAPSHOT
 
 git add .
+git commit -m "abertura da versao !NOVA_SNAPSHOT!"
 
-if /I "%EXEC_COMMITS%"=="TRUE" (
-    git commit -m "abertura da versao !NOVA_SNAPSHOT!"
-) else (
-    echo Commit SNAPSHOT ignorado
-)
 
 REM ======================================================
 REM 11 - VOLTAR PARA DEVELOP
@@ -195,12 +184,8 @@ echo.
 echo [14] Commit abertura da versao develop
 
 git add .
+git commit -m "abertura da versao !NOVA_DEV!"
 
-if /I "%EXEC_COMMITS%"=="TRUE" (
-    git commit -m "abertura da versao !NOVA_DEV!"
-) else (
-    echo Commit develop ignorado
-)
 
 echo.
 echo ============================================
